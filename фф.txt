@@ -1,0 +1,695 @@
+#pragma once
+
+#include <cmath>
+#include <vector>
+
+namespace pro1 {
+
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+
+	/// <summary>
+	/// Сводка для MyForm
+	/// </summary>
+	public ref class MyForm : public System::Windows::Forms::Form
+	{
+	public:
+		MyForm(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: добавьте код конструктора
+			//
+		}
+
+	protected:
+		/// <summary>
+		/// Освободить все используемые ресурсы.
+		/// </summary>
+		~MyForm()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::Label^ lblKurs;
+
+
+
+
+	private: System::Windows::Forms::Label^ lblSum;
+	private: System::Windows::Forms::TextBox^ txbKurs;
+	private: System::Windows::Forms::TextBox^ txbSum;
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::Label^ lblResult2;
+	private: System::Windows::Forms::Label^ lblResult1;
+	private: System::Windows::Forms::TextBox^ txbResult2;
+	private: System::Windows::Forms::TextBox^ txbResult1;
+
+	private: System::Windows::Forms::Button^ btnClose;
+	private: System::Windows::Forms::Button^ btnKonvert;
+	private: System::Windows::Forms::Button^ btnSet;
+	private: System::Windows::Forms::Button^ btnReset;
+	private: System::Windows::Forms::RadioButton^ rbRubtodollar;
+
+	private: System::Windows::Forms::RadioButton^ rbDollartorub;
+	private: System::Windows::Forms::RadioButton^ rbEurotorub;
+	private: System::Windows::Forms::RadioButton^ rbRubtoeuro;
+
+
+
+
+
+
+	protected:
+	private: System::ComponentModel::IContainer^ components;
+
+	protected:
+
+	private:
+		/// <summary>
+		/// Обязательная переменная конструктора.
+		/// </summary>
+
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Требуемый метод для поддержки конструктора — не изменяйте 
+		/// содержимое этого метода с помощью редактора кода.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->btnSet = (gcnew System::Windows::Forms::Button());
+			this->btnReset = (gcnew System::Windows::Forms::Button());
+			this->lblKurs = (gcnew System::Windows::Forms::Label());
+			this->lblSum = (gcnew System::Windows::Forms::Label());
+			this->txbKurs = (gcnew System::Windows::Forms::TextBox());
+			this->txbSum = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->lblResult2 = (gcnew System::Windows::Forms::Label());
+			this->lblResult1 = (gcnew System::Windows::Forms::Label());
+			this->txbResult2 = (gcnew System::Windows::Forms::TextBox());
+			this->txbResult1 = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->rbRubtoeuro = (gcnew System::Windows::Forms::RadioButton());
+			this->rbEurotorub = (gcnew System::Windows::Forms::RadioButton());
+			this->rbRubtodollar = (gcnew System::Windows::Forms::RadioButton());
+			this->rbDollartorub = (gcnew System::Windows::Forms::RadioButton());
+			this->btnKonvert = (gcnew System::Windows::Forms::Button());
+			this->btnClose = (gcnew System::Windows::Forms::Button());
+			this->groupBox1->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			this->groupBox3->SuspendLayout();
+			this->SuspendLayout();
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->BackColor = System::Drawing::SystemColors::Control;
+			this->groupBox1->Controls->Add(this->btnSet);
+			this->groupBox1->Controls->Add(this->btnReset);
+			this->groupBox1->Controls->Add(this->lblKurs);
+			this->groupBox1->Controls->Add(this->lblSum);
+			this->groupBox1->Controls->Add(this->txbKurs);
+			this->groupBox1->Controls->Add(this->txbSum);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->groupBox1->Location = System::Drawing::Point(12, 12);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(459, 152);
+			this->groupBox1->TabIndex = 0;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Исходные данные";
+			// 
+			// btnSet
+			// 
+			this->btnSet->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnSet->Location = System::Drawing::Point(234, 97);
+			this->btnSet->Name = L"btnSet";
+			this->btnSet->Size = System::Drawing::Size(118, 28);
+			this->btnSet->TabIndex = 6;
+			this->btnSet->Text = L"Установить";
+			this->btnSet->UseVisualStyleBackColor = true;
+			this->btnSet->Click += gcnew System::EventHandler(this, &MyForm::btnSet_Click);
+			// 
+			// btnReset
+			// 
+			this->btnReset->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnReset->Location = System::Drawing::Point(358, 97);
+			this->btnReset->Name = L"btnReset";
+			this->btnReset->Size = System::Drawing::Size(80, 28);
+			this->btnReset->TabIndex = 5;
+			this->btnReset->Text = L"Сброс";
+			this->btnReset->UseVisualStyleBackColor = true;
+			this->btnReset->Click += gcnew System::EventHandler(this, &MyForm::btnReset_Click);
+			// 
+			// lblKurs
+			// 
+			this->lblKurs->AutoSize = true;
+			this->lblKurs->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblKurs->Location = System::Drawing::Point(6, 65);
+			this->lblKurs->Name = L"lblKurs";
+			this->lblKurs->Size = System::Drawing::Size(182, 18);
+			this->lblKurs->TabIndex = 1;
+			this->lblKurs->Text = L"Курс обмена (руб. / $)";
+			// 
+			// lblSum
+			// 
+			this->lblSum->AutoSize = true;
+			this->lblSum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblSum->Location = System::Drawing::Point(6, 34);
+			this->lblSum->Name = L"lblSum";
+			this->lblSum->Size = System::Drawing::Size(199, 18);
+			this->lblSum->TabIndex = 1;
+			this->lblSum->Text = L"Сумма для конвертации";
+			// 
+			// txbKurs
+			// 
+			this->txbKurs->Location = System::Drawing::Point(234, 62);
+			this->txbKurs->Name = L"txbKurs";
+			this->txbKurs->Size = System::Drawing::Size(204, 24);
+			this->txbKurs->TabIndex = 1;
+			this->txbKurs->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->txbKurs->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::txbKurs_KeyPress);
+			// 
+			// txbSum
+			// 
+			this->txbSum->Location = System::Drawing::Point(234, 32);
+			this->txbSum->Name = L"txbSum";
+			this->txbSum->Size = System::Drawing::Size(204, 24);
+			this->txbSum->TabIndex = 1;
+			this->txbSum->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->txbSum->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::txbSum_KeyPress);
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->lblResult2);
+			this->groupBox2->Controls->Add(this->lblResult1);
+			this->groupBox2->Controls->Add(this->txbResult2);
+			this->groupBox2->Controls->Add(this->txbResult1);
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->groupBox2->Location = System::Drawing::Point(12, 179);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(459, 79);
+			this->groupBox2->TabIndex = 1;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Результат конвертации";
+			// 
+			// lblResult2
+			// 
+			this->lblResult2->AutoSize = true;
+			this->lblResult2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblResult2->Location = System::Drawing::Point(381, 38);
+			this->lblResult2->Name = L"lblResult2";
+			this->lblResult2->Size = System::Drawing::Size(40, 18);
+			this->lblResult2->TabIndex = 2;
+			this->lblResult2->Text = L"руб.";
+			// 
+			// lblResult1
+			// 
+			this->lblResult1->AutoSize = true;
+			this->lblResult1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblResult1->Location = System::Drawing::Point(165, 38);
+			this->lblResult1->Name = L"lblResult1";
+			this->lblResult1->Size = System::Drawing::Size(37, 18);
+			this->lblResult1->TabIndex = 2;
+			this->lblResult1->Text = L"$  =";
+			// 
+			// txbResult2
+			// 
+			this->txbResult2->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->txbResult2->Location = System::Drawing::Point(243, 35);
+			this->txbResult2->Name = L"txbResult2";
+			this->txbResult2->ReadOnly = true;
+			this->txbResult2->Size = System::Drawing::Size(130, 24);
+			this->txbResult2->TabIndex = 2;
+			this->txbResult2->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			// 
+			// txbResult1
+			// 
+			this->txbResult1->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->txbResult1->Location = System::Drawing::Point(29, 35);
+			this->txbResult1->Name = L"txbResult1";
+			this->txbResult1->ReadOnly = true;
+			this->txbResult1->Size = System::Drawing::Size(130, 24);
+			this->txbResult1->TabIndex = 2;
+			this->txbResult1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->rbRubtoeuro);
+			this->groupBox3->Controls->Add(this->rbEurotorub);
+			this->groupBox3->Controls->Add(this->rbRubtodollar);
+			this->groupBox3->Controls->Add(this->rbDollartorub);
+			this->groupBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->groupBox3->Location = System::Drawing::Point(496, 12);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(290, 187);
+			this->groupBox3->TabIndex = 2;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Направления конвертации";
+			// 
+			// rbRubtoeuro
+			// 
+			this->rbRubtoeuro->AutoSize = true;
+			this->rbRubtoeuro->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->rbRubtoeuro->Location = System::Drawing::Point(15, 130);
+			this->rbRubtoeuro->Name = L"rbRubtoeuro";
+			this->rbRubtoeuro->Size = System::Drawing::Size(133, 22);
+			this->rbRubtoeuro->TabIndex = 3;
+			this->rbRubtoeuro->Text = L"Рубли в евро";
+			this->rbRubtoeuro->UseVisualStyleBackColor = true;
+			this->rbRubtoeuro->CheckedChanged += gcnew System::EventHandler(this, &MyForm::rbRubtoeuro_CheckedChanged);
+			// 
+			// rbEurotorub
+			// 
+			this->rbEurotorub->AutoSize = true;
+			this->rbEurotorub->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->rbEurotorub->Location = System::Drawing::Point(15, 95);
+			this->rbEurotorub->Name = L"rbEurotorub";
+			this->rbEurotorub->Size = System::Drawing::Size(133, 22);
+			this->rbEurotorub->TabIndex = 2;
+			this->rbEurotorub->Text = L"Евро в рубли";
+			this->rbEurotorub->UseVisualStyleBackColor = true;
+			this->rbEurotorub->CheckedChanged += gcnew System::EventHandler(this, &MyForm::rbEurotorub_CheckedChanged);
+			// 
+			// rbRubtodollar
+			// 
+			this->rbRubtodollar->AutoSize = true;
+			this->rbRubtodollar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->rbRubtodollar->Location = System::Drawing::Point(15, 60);
+			this->rbRubtodollar->Name = L"rbRubtodollar";
+			this->rbRubtodollar->Size = System::Drawing::Size(166, 22);
+			this->rbRubtodollar->TabIndex = 1;
+			this->rbRubtodollar->Text = L"Рубли в доллары";
+			this->rbRubtodollar->UseVisualStyleBackColor = true;
+			this->rbRubtodollar->CheckedChanged += gcnew System::EventHandler(this, &MyForm::rbRubtodollar_CheckedChanged);
+			// 
+			// rbDollartorub
+			// 
+			this->rbDollartorub->AutoSize = true;
+			this->rbDollartorub->Checked = true;
+			this->rbDollartorub->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->rbDollartorub->Location = System::Drawing::Point(15, 25);
+			this->rbDollartorub->Name = L"rbDollartorub";
+			this->rbDollartorub->Size = System::Drawing::Size(167, 22);
+			this->rbDollartorub->TabIndex = 0;
+			this->rbDollartorub->TabStop = true;
+			this->rbDollartorub->Text = L"Доллары в рубли";
+			this->rbDollartorub->UseVisualStyleBackColor = true;
+			this->rbDollartorub->CheckedChanged += gcnew System::EventHandler(this, &MyForm::rbDollartorub_CheckedChanged);
+			// 
+			// btnKonvert
+			// 
+			this->btnKonvert->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnKonvert->Location = System::Drawing::Point(496, 207);
+			this->btnKonvert->Name = L"btnKonvert";
+			this->btnKonvert->Size = System::Drawing::Size(171, 36);
+			this->btnKonvert->TabIndex = 3;
+			this->btnKonvert->Text = L"Конвертировать";
+			this->btnKonvert->UseVisualStyleBackColor = true;
+			this->btnKonvert->Click += gcnew System::EventHandler(this, &MyForm::btnKonvert_Click);
+			// 
+			// btnClose
+			// 
+			this->btnClose->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnClose->Location = System::Drawing::Point(684, 207);
+			this->btnClose->Name = L"btnClose";
+			this->btnClose->Size = System::Drawing::Size(102, 36);
+			this->btnClose->TabIndex = 4;
+			this->btnClose->Text = L"Закрыть";
+			this->btnClose->UseVisualStyleBackColor = true;
+			this->btnClose->Click += gcnew System::EventHandler(this, &MyForm::btnClose_Click);
+			this->btnClose->MouseEnter += gcnew System::EventHandler(this, &MyForm::btnClose_MouseEnter);
+			this->btnClose->MouseLeave += gcnew System::EventHandler(this, &MyForm::btnClose_MouseLeave);
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->ClientSize = System::Drawing::Size(806, 282);
+			this->Controls->Add(this->btnClose);
+			this->Controls->Add(this->btnKonvert);
+			this->Controls->Add(this->groupBox3);
+			this->Controls->Add(this->groupBox2);
+			this->Controls->Add(this->groupBox1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->MaximizeBox = false;
+			this->Name = L"MyForm";
+			this->Text = L"Обмен валют";
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
+			this->ResumeLayout(false);
+
+		}
+#pragma endregion
+	double dollartorub;
+	double eurotorub;
+	double rubtodollar;
+	double rubtoeuro;
+
+	private: System::Void btnClose_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+
+	private: System::Void btnClose_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		btnClose->BackColor = Color::FromArgb(240, 128, 128);
+	}
+	private: System::Void btnClose_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		btnClose->BackColor = SystemColors::Window;
+	}
+
+
+	private: System::Void btnSet_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ kursText = txbKurs->Text;
+		txbKurs->BackColor = SystemColors::Window;
+		double kurs;
+
+		if ((kursText->StartsWith(".")) || (kursText->StartsWith(","))){
+			kursText = "0" + kursText; // Добавляем "0" в начало
+		}
+
+		// Замена точки на запятую
+		if (kursText->Contains(".")) {
+			kursText = kursText->Replace(".", ",");
+		}
+
+		if ((String::IsNullOrEmpty(kursText)) || (!Double::TryParse(kursText, kurs)) || (kurs == 0)) {
+			txbKurs->BackColor = Color::FromArgb(240, 128, 128);
+			MessageBox::Show("Введите корректный курс обмена!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			txbKurs->Focus(); // Перенос на поле
+			txbKurs->SelectAll(); // Выделение текста
+			return; 
+		}
+		else {
+			if (!(rbDollartorub->Checked) && !(rbRubtodollar->Checked) && !(rbEurotorub->Checked) && !(rbRubtoeuro->Checked)) {
+				MessageBox::Show("Для установки курса выберите направление конвертации!", "Обмен валют - Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				return;
+			}
+			else {
+				//kurs = System::Math::Truncate(kurs * 100) / 100;
+				txbKurs->Text = kurs.ToString("F2");
+				MessageBox::Show("Курс валюты был обновлен успешно.", "Обмен валют - Обновление курса", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+				if (rbDollartorub->Checked) {
+					dollartorub = kurs;
+				}
+				else if (rbRubtodollar->Checked) {
+					rubtodollar = kurs;
+				}
+				else if (rbEurotorub->Checked) {
+					eurotorub = kurs;
+				}
+				else if (rbRubtoeuro->Checked) {
+					rubtoeuro = kurs;
+				}
+			}
+		}
+
+	}
+
+	private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
+		txbKurs->BackColor = SystemColors::Window;
+		txbKurs->Text = "Введите курс";
+		txbKurs->Focus(); // Перенос на поле
+		txbKurs->SelectAll(); // Выделение текста
+
+		if (rbDollartorub->Checked) {
+			dollartorub = 0;
+		}
+		else if (rbRubtodollar->Checked) {
+			rubtodollar = 0;
+		}
+		else if (rbEurotorub->Checked) {
+			eurotorub = 0;
+		}
+		else if (rbRubtoeuro->Checked) {
+			rubtoeuro = 0;
+		}
+		else {
+			MessageBox::Show("Выберите направление конвертации для сброса курса!", "Обмен валют - Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+	}
+
+	private: System::Void btnKonvert_Click(System::Object^ sender, System::EventArgs^ e) {
+		double sum;
+		double result;
+		String^ sumText = txbSum->Text;
+		txbSum->BackColor = SystemColors::Window;
+
+		if ((sumText->StartsWith(".")) || (sumText->StartsWith(","))) {
+			sumText = "0" + sumText;
+		}
+
+		sumText = sumText->Replace(".", ",");
+
+		if ((String::IsNullOrEmpty(sumText)) || (!Double::TryParse(sumText, sum))) {
+			txbSum->BackColor = Color::FromArgb(240, 128, 128);
+			MessageBox::Show("Введите корректное значение суммы для конвертации!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			txbSum->Focus();
+			txbSum->SelectAll(); 
+			return;
+		}
+		else {
+			//sum = System::Math::Truncate(sum * 100) / 100;
+			txbSum->Text = sum.ToString("F2");
+
+		}
+
+
+		if (rbDollartorub->Checked) {
+			if (dollartorub == 0) {
+				txbKurs->BackColor = Color::FromArgb(240, 128, 128);
+				MessageBox::Show("Установите корректный курс обмена!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				txbKurs->Focus();
+				txbKurs->SelectAll();
+			}
+			else {
+				result = sum * dollartorub;
+				if (result < 1) {
+					txbSum->BackColor = Color::FromArgb(240, 128, 128);
+					MessageBox::Show("Слишком малая сумма для конвертации!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					txbSum->Focus();
+					txbSum->SelectAll();
+				}
+				else {
+					result = System::Math::Truncate(result * 100) / 100;
+					txbResult1->Text = sum.ToString("F2");
+					txbResult2->Text = result.ToString("F2");
+				}
+			}
+
+		}
+		else if (rbRubtodollar->Checked) {
+			if (rubtodollar == 0) {
+				txbKurs->BackColor = Color::FromArgb(240, 128, 128);
+				MessageBox::Show("Установите корректный курс обмена!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				txbKurs->Focus();
+				txbKurs->SelectAll();
+			}
+			else {
+				result = sum / rubtodollar;
+				if (result < 1) {
+					txbSum->BackColor = Color::FromArgb(240, 128, 128);
+					MessageBox::Show("Слишком малая сумма для конвертации!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					txbSum->Focus();
+					txbSum->SelectAll();
+				}
+				else {
+					result = System::Math::Truncate(result * 100) / 100;
+					lblResult1->Text = "руб. =";
+					lblResult2->Text = "$";
+					txbResult1->Text = sum.ToString("F2");
+					txbResult2->Text = result.ToString("F2");
+				}
+			}
+			
+		}
+		else if (rbEurotorub->Checked) {
+			if (eurotorub == 0) {
+				txbKurs->BackColor = Color::FromArgb(240, 128, 128);
+				MessageBox::Show("Установите корректный курс обмена!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				txbKurs->Focus();
+				txbKurs->SelectAll();
+			}
+			else {
+				result = sum * eurotorub;
+				if (result < 1) {
+					txbSum->BackColor = Color::FromArgb(240, 128, 128);
+					MessageBox::Show("Слишком малая сумма для конвертации!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					txbSum->Focus();
+					txbSum->SelectAll();
+				}
+				else {
+					result = System::Math::Truncate(result * 100) / 100;
+					lblResult1->Text = "евро =";
+					lblResult2->Text = "руб.";
+					txbResult1->Text = sum.ToString("F2");
+					txbResult2->Text = result.ToString("F2");
+				}
+			}
+
+		}
+		else if (rbRubtoeuro->Checked) {
+			if (rubtoeuro == 0) {
+				txbKurs->BackColor = Color::FromArgb(240, 128, 128);
+				MessageBox::Show("Установите корректный курс обмена!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				txbKurs->Focus();
+				txbKurs->SelectAll();
+			}
+			else {
+				result = sum / rubtoeuro;
+				if (result < 1) {
+					txbSum->BackColor = Color::FromArgb(240, 128, 128);
+					MessageBox::Show("Слишком малая сумма для конвертации!", "Обмен валют - Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					txbSum->Focus();
+					txbSum->SelectAll();
+				}
+				else {
+					result = System::Math::Truncate(result * 100) / 100;
+					lblResult1->Text = "руб. =";
+					lblResult2->Text = "евро";
+					txbResult1->Text = sum.ToString("F2");
+					txbResult2->Text = result.ToString("F2");
+				}
+			}
+			
+		}
+		else {
+			MessageBox::Show("Выберите направление конвертации!", "Обмен валют - Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+
+	}
+
+
+	private: System::Void txbKurs_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != ',' && e->KeyChar != (Char)Keys::Back) {
+			e->Handled = true; 
+		}
+
+		// Разрешение ввода только 1 запятой
+		TextBox^ textBox = safe_cast<TextBox^>(sender); 
+		if ((e->KeyChar == '.' || e->KeyChar == ',') && textBox->Text->Contains(e->KeyChar.ToString())) {
+			e->Handled = true;
+		}
+	}
+
+
+
+	private: System::Void txbSum_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != ',' && e->KeyChar != (Char)Keys::Back) {
+			e->Handled = true; 
+		}
+
+		// Разрешение ввода только 1 запятой
+		TextBox^ textBox = safe_cast<TextBox^>(sender); 
+		if ((e->KeyChar == '.' || e->KeyChar == ',') && textBox->Text->Contains(e->KeyChar.ToString())) {
+			e->Handled = true;
+		}
+
+	}
+	private: System::Void rbDollartorub_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		txbSum->BackColor = SystemColors::Window;
+		txbKurs->BackColor = SystemColors::Window;
+
+		txbSum->Text = "";
+		txbResult1->Text = "";
+		txbResult2->Text = "";
+		lblKurs->Text = "Курс обмена (руб. / $)";
+		lblResult1->Text = "$   =";
+		lblResult2->Text = "руб.";
+
+
+		if (dollartorub > 0) {
+			txbKurs->Text = dollartorub.ToString("F2");
+		}
+		else {
+			txbKurs->Text = "";
+		}
+	}
+	private: System::Void rbRubtodollar_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		txbSum->BackColor = SystemColors::Window;
+		txbKurs->BackColor = SystemColors::Window;
+
+		txbSum->Text = "";
+		txbResult1->Text = "";
+		txbResult2->Text = "";
+		lblKurs->Text = "Курс обмена (руб. / $)";
+		lblResult1->Text = "руб. =";
+		lblResult2->Text = "$";
+
+		if (rubtodollar > 0) {
+			txbKurs->Text = rubtodollar.ToString("F2");
+		}
+		else {
+			txbKurs->Text = "";
+		}
+
+	}
+	private: System::Void rbEurotorub_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		txbSum->BackColor = SystemColors::Window;
+		txbKurs->BackColor = SystemColors::Window;
+
+		txbSum->Text = "";
+		txbResult1->Text = "";
+		txbResult2->Text = "";
+		lblKurs->Text = "Курс обмена (руб./евро)";
+		lblResult1->Text = "евро =";
+		lblResult2->Text = "руб.";
+
+		if (eurotorub > 0) {
+			txbKurs->Text = eurotorub.ToString("F2");
+		}
+		else {
+			txbKurs->Text = "";
+		}
+	}
+	private: System::Void rbRubtoeuro_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		txbSum->BackColor = SystemColors::Window;
+		txbKurs->BackColor = SystemColors::Window;
+
+		txbSum->Text = "";
+		txbResult1->Text = "";
+		txbResult2->Text = "";
+		lblKurs->Text = "Курс обмена (руб./евро)";
+		lblResult1->Text = "руб. =";
+		lblResult2->Text = "евро";
+
+		if (rubtoeuro > 0) {
+			txbKurs->Text = rubtoeuro.ToString("F2");
+		}
+		else {
+			txbKurs->Text = "";
+		}
+	}
+};
+}
